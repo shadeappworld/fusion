@@ -1,0 +1,16 @@
+{
+  "name": "Shade Fusion",
+  "short_name": "Fusion",
+  "description": "Welcome to Shade Fusion. where you can access all Shade apps in one - without installation!",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "InShot_20221220_140239946.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
