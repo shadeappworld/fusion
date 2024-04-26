@@ -9,19 +9,20 @@ body {
 
 body {
   padding: 1rem;
-  background-color: #EEF1FF;
+  background-color: #000000;
   font-family: Kanit, monospace;
 }
 
 h1{
   padding:0 1rem 0 1rem;
+  color: #EEF1FF;
   text-decoration: 0.1rem dashed underline #B1B2FF
 }
 h1 p {
   display: inline;
-  color: #f0db4f;
+  color: #ddd8bd;
   text-shadow: 0 0 1rem;
-  -webkit-text-stroke: 0.1rem #323330;
+  -webkit-text-stroke: 0.1rem #b5c29a;
 }
 
 section {
@@ -38,7 +39,7 @@ a {
   border-radius: 1rem;
   border: 0.1rem solid;
   border-bottom: 0.3rem solid;
-  color: inherit;
+  color: #EEF1FF;
   text-decoration: none;
   text-align: center;
 }
