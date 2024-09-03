@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="save.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#5656f6" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <meta name="description" content="An awesome Tabbed App">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png">
+    <title>Shade Fusion</title>
+</head>
+
+<body class="body">
+    <div id="mySidenav" class="sidenav">
+        <div style="    background: #101010;
+    border-bottom: 2px solid #4c4c4c;
+    margin-bottom: 21px;
+    height: 124px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;">
+            <h3 style="font-weight:100;margin: 0px;"><b>Shade&nbsp;</b>&nbsp;Fusion</h3>
+
+            <span href="javascript:void(0)" class=" material-symbols-rounded closebtn" onclick="closeNav()"
+                aria-label="close sidebar" id="NOEXCUSE">cancel</span>
+            <p style="color:#f1f1f1a3;font-size: 14px;text-align: center;">Your all in one app</p>
+        </div>
+        <div class="side-button tablink" onclick="openRoute('home',this)" id="defaultOpen" aria-label="open home page">
+              <span class="material-symbols-outlined">
+play_circle
+</span>
+            <p>Shade App Plus</p>
+        </div>
+        <div class="side-button tablink" onclick="openRoute('counterPage',this)" aria-label="open counter tab">
+            <span class="material-symbols-outlined">
+headphones
+</span>
+            <p>Shade Music Plus</p>
+        </div>
+        <div class="side-button tablink" onclick="openRoute('info',this)" aria-label="open info tab">
+            <span class="material-symbols-outlined">
+text_snippet
+</span><p>Shade Notes Pro</p>
+        </div>
+        <div class="side-button tablink" style="color: rgba(255, 255, 255, 0.459);" onclick="openRoute('github',this)"
+            aria-label="open help page">
+          <span class="material-symbols-outlined">
+task_alt
+</span>
+            <p>Shade Task</p>
+        </div>
+
+    </div>
+    <div id="main" class="main">
+
+        <header>
+            <!--  -->
+            <span class="material-symbols-rounded clickable" onclick="openNav()">
+                menu
+            </span>
+            <span id="offlineA"
+                style="color: red;display: none;flex-wrap: wrap;flex-direction: row;align-content: center;align-items: center;justify-content: center;">&nbsp;
+                <span class="material-symbols-rounded">wifi_off</span></span>
+            <div class="headerButtonContainer">
+                <button class="dev_button_mobile" id="gotohomepage" onclick="goTo('TWA')"
+                    aria-label="go to Tabbed.web.app">
+                    <span class="material-symbols-outlined">
+computer
+</span>
+                </button>
+                <button class="dev_button_mobile" id="installMobile" onclick="pwainstall()"
+                    aria-label="install to the device">
+                    <span class="material-symbols-rounded clickable" style="font-size:18px">install_mobile</span>
+                </button>
+                <button class="dev_button_mobile" onclick="share()" aria-label="share the app">
+                    <span class="material-symbols-rounded clickable" style="font-size:18px">share</span>
+                </button>
+            </div>
+        </header>
+        <section id="view" class="tabcontent">
+
+            <!-- Page Content Goes Here -->
+        </section>
+        <script>
+            var count = 0;
+            function incrementCountby(k) {
+                count += k; document.getElementById('counter').innerHTML = count
+            }
+        </script>
+        <script src="tab.min.js"></script>
+        <script src="ButtonFunctions.js"></script>
+    </div>
+</body>
+
+</html>
