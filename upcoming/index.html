@@ -1,108 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P7JWWB27S0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="save.min.css">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#5656f6" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  gtag('config', 'G-P7JWWB27S0');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shade Fusion</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <style><style>
+  
+		.circle-popup {
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 5%;
+      border-radius: 1px;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 9999;
+    }
 
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <meta name="description" content="An awesome Tabbed App">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.png">
-    <title>Shade Fusion</title>
-</head>
+    .chat-icon {
+		position: fixed;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 5%;
+      border-radius: 1px;
+      background-color: transparent;
+      backdrop-filter: blur(3px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 9999;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01);
+}
+.chat-icon::after {
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  transform: scale(1.4) translateZ(0);
+  filter: blur(25px);
+  background: linear-gradient(to left, #ff5770, #e4428d, #c42da8, #9e16c3, #6501de, #9e16c3, #c42da8, #e4428d, #ff5770);
+  background-size: 200% 200%;
+  -webkit-animation: animateGlow 1.25s linear infinite;
+          animation: animateGlow 1.25s linear infinite;
+}
 
-<body class="body">
-    <div id="mySidenav" class="sidenav">
-        <div style="    background: #101010;
-    border-bottom: 2px solid #4c4c4c;
-    margin-bottom: 21px;
-    height: 124px;
+@-webkit-keyframes animateGlow {
+  0% {
+    background-position: 200% 200%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}		.popup-content {
+		top: 35%;	border-radius: 4%;		z-index: 999; display: none; /* Initially hidden */ position: fixed;			left: 10%; width: 80%; height: 50%; background-color: grey; backdrop-filter: blur(5px); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+		}
+	
+		.close-btn {
+		  position: fixed;
+		  bottom: 0px;
+		  left: 0px;
+		  width: 100%;
+		  height: 40px;
+		  border-radius: 0px;
+		  background-color: #264d29;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  cursor: pointer;
+		  z-index: 9999;
+		}
+	
+		iframe {
+		  width: 100%;
+		  height: 100%;
+		  border-radius: 0%;
+		}
+	 
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        body {
+            padding: 1rem;
+            background-color: #1C1C1E; /* Dark mode background */
+            font-family: 'San Francisco', Kanit, monospace;
+            color: #FFFFFF; /* Standard iOS text color for dark mode */
+        }
+
+        /* Title Styling */
+        h1 {
+            padding: 1rem;
+            color: #FFFFFF;
+            text-align: center;
+            font-weight: 600;
+            font-size: 2rem;
+            text-decoration: none; /* Minimalistic, no underline */
+            letter-spacing: -0.01em;
+        }
+
+        h1 p {
+            display: inline;
+            color: #F0F0F0;
+            font-weight: 400;
+        }
+
+        /* Section Layout */
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 0.1rem;
+        }
+
+        /* Individual Card Styles */
+        .card {
+            width: 100%;
+            margin: 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* iOS-like Button Style */
+        a {
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            color: #FFFFFF;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1rem;
+			background: transparent;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+        }
+
+        /* Button Hover Effect */
+        a:hover {
+		background: transparent;
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        /* Iframe Styling */
+        .dropdown-iframe {
+            display: none; /* Hidden by default */
+            width: 100%;
+            height: 450px; /* Adjust as needed */
+            border: none;
+            border-radius: 0.75rem;
+            margin-top: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for the iframe */
+        }
+
+        /* Responsive Design for Landscape */
+        @media (orientation:landscape) {
+            a {
+                width: 60%;
+            }
+
+            h1 {
+                text-align: center;
+            }
+        }
+        .card {
+    cursor: move;
+}
+
+.card.dragging {
+    opacity: 0.5;
+}
+
+#cards-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;">
-            <h3 style="font-weight:100;margin: 0px;"><b>Shade&nbsp;</b>&nbsp;Fusion</h3>
+    gap: 10px;
+}
 
-            <span href="javascript:void(0)" class=" material-symbols-rounded closebtn" onclick="closeNav()"
-                aria-label="close sidebar" id="NOEXCUSE">cancel</span>
-            <p style="color:#f1f1f1a3;font-size: 14px;text-align: center;">Your all in one app</p>
-        </div>
-        <div class="side-button tablink" onclick="openRoute('home',this)" id="defaultOpen" aria-label="open home page">
-              <span class="material-symbols-outlined">
-play_circle
-</span>
-            <p>Shade App Plus</p>
-        </div>
-        <div class="side-button tablink" onclick="openRoute('counterPage',this)" aria-label="open counter tab">
-            <span class="material-symbols-outlined">
-headphones
-</span>
-            <p>Shade Music Plus</p>
-        </div>
-        <div class="side-button tablink" onclick="openRoute('info',this)" aria-label="open info tab">
-            <span class="material-symbols-outlined">
-text_snippet
-</span><p>Shade Notes Pro</p>
-        </div>
-        <div class="side-button tablink" style="color: rgba(255, 255, 255, 0.459);" onclick="openRoute('github',this)"
-            aria-label="open help page">
-          <span class="material-symbols-outlined">
-task_alt
-</span>
-            <p>Shade Task</p>
-        </div>
+#cards-section .card {
+    transition: opacity 0.3s;
+}
+    </style>
+</head>
 
+<body>
+ <h1 contenteditable="true">
+    Shade <p contenteditable="true">Fusion</p>
+</h1>
+ <section id="cards-section">
+    <div class="card" style="background-color: rgba(255, 68, 243, 0.2);" draggable="true">
+        <a href="javascript:void(0);" onclick="openIframe(this, 'https://notesultra.vercel.app/clean.html')">
+            <h2>Shade Notes</h2>
+            <p>Our advanced note-taking app</p>
+        </a>
+        <iframe class="dropdown-iframe" src="" frameborder="0"></iframe>
     </div>
-    <div id="main" class="main">
+    
+    <div class="card" style="background-color: #739bdaaa;" draggable="true">
+        <a href="javascript:void(0);" onclick="openIframe(this, 'https://shademusic.vercel.app')">
+            <h2>Shade Music</h2>
+            <p>It's a new way of Music!</p>
+        </a>
+        <iframe class="dropdown-iframe" src="" frameborder="0"></iframe>
+    </div>
+    
+    <div class="card" style="background-color: #88ABFF;" draggable="true">
+        <a href="javascript:void(0);" onclick="openIframe(this, 'https://shadecreative.vercel.app')">
+            <h2>Shade Creative</h2>
+            <p>Unleash your inner creativity.</p>
+        </a>
+        <iframe class="dropdown-iframe" src="" frameborder="0"></iframe>
+    </div>
+    
+    <div class="card" style="background-color: rgba(38, 255, 0, 0.2);" draggable="true">
+        <a href="javascript:void(0);" onclick="openIframe(this, 'https://msha.ke/shadesoftware')">
+            <h2>Inline Magic Appstore</h2>
+            <p>Access your favorite apps.</p>
+        </a>
+        <iframe class="dropdown-iframe" src="" frameborder="0"></iframe>
+    </div>
+    
+    <div class="card" style="background-color: rgba(0, 238, 255, 0.467);" draggable="true">
+        <a href="javascript:void(0);" onclick="openIframe(this, 'https://shadeappworld.github.io/tasks')">
+            <h2>Shade Task</h2>
+            <p>Our first to-do list app powered by Inline Magic.</p>
+        </a>
+        <iframe class="dropdown-iframe" src="" frameborder="0"></iframe>
+    </div>
+   
+    <div class="card" style="background-color: rgba(12, 187, 0, 0.467);" draggable="true">
+        <a href="javascript:void(0);" onclick="openIframe(this, 'https://shadeappworld.github.io/notes')">
+            <h2>Shade Notes</h2>
+            <p>Our quick note-taking app.</p>
+        </a>
+        <iframe class="dropdown-iframe" src="" frameborder="0"></iframe>
+    </div>
+</section>
+<script>
+    function openIframe(anchorElement, url) {
+        const iframe = anchorElement.nextElementSibling; // Select the iframe directly below the anchor
+        iframe.src = url; // Set the source of the iframe to the URL
+        iframe.style.display = 'block'; // Show the iframe when a link is clicked
 
-        <header>
-            <!--  -->
-            <span class="material-symbols-rounded clickable" onclick="openNav()">
-                menu
-            </span>
-            <span id="offlineA"
-                style="color: red;display: none;flex-wrap: wrap;flex-direction: row;align-content: center;align-items: center;justify-content: center;">&nbsp;
-                <span class="material-symbols-rounded">wifi_off</span></span>
-            <div class="headerButtonContainer">
-                <button class="dev_button_mobile" id="gotohomepage" onclick="goTo('TWA')"
-                    aria-label="go to Tabbed.web.app">
-                    <span class="material-symbols-outlined">
-computer
-</span>
-                </button>
-                <button class="dev_button_mobile" id="installMobile" onclick="pwainstall()"
-                    aria-label="install to the device">
-                    <span class="material-symbols-rounded clickable" style="font-size:18px">install_mobile</span>
-                </button>
-                <button class="dev_button_mobile" onclick="share()" aria-label="share the app">
-                    <span class="material-symbols-rounded clickable" style="font-size:18px">share</span>
-                </button>
-            </div>
-        </header>
-        <section id="view" class="tabcontent">
-
-            <!-- Page Content Goes Here -->
-        </section>
-        <script>
-            var count = 0;
-            function incrementCountby(k) {
-                count += k; document.getElementById('counter').innerHTML = count
+        // Optional: Close any open iframe when a new link is clicked
+        document.querySelectorAll('.dropdown-iframe').forEach(iframe => {
+            if (iframe !== anchorElement.nextElementSibling) {
+                iframe.style.display = 'none'; // Hide other iframes
+                iframe.src = ''; // Clear the source
             }
-        </script>
-        <script src="tab.min.js"></script>
-        <script src="ButtonFunctions.js"></script>
-    </div>
+        });
+    }
+</script>
+  <script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
+
+
+										 <script>
+											// Get the necessary DOM elements
+												var circlePopup = document.querySelector('.circle-popup');
+													var popupContent = document.querySelector('.popup-content');
+														var closeBtn = document.querySelector('.close-btn');
+									  
+															// Function to toggle the popup
+																function togglePopup() {
+																	  popupContent.style.display = popupContent.style.display === 'block' ? 'none' : 'block';
+																		  }
+									  
+																			  // Add event listeners to the elements
+																				  circlePopup.addEventListener('click', togglePopup);
+																					  closeBtn.addEventListener('click', togglePopup);
+																							 </script>
 </body>
+<!-- Theme Selector Panel -->
+<div id="themeSelector" style="display:none; position: fixed; bottom: 10px; right: 10px; background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 10000;">
+  <h3>Select a Theme</h3>
+  <label for="colorPicker">Background Color:</label>
+  <input type="color" id="colorPicker" onchange="applyColorTheme(this.value)"><br><br>
+
+  <h3>Select Font</h3>
+  <select id="fontSelector" onchange="applyFont(this.value)">
+    <option value="'Arial', sans-serif">Arial</option>
+    <option value="'Courier New', monospace">Courier New</option>
+    <option value="'Georgia', serif">Georgia</option>
+    <option value="'Times New Roman', serif">Times New Roman</option>
+    <option value="'Verdana', sans-serif">Verdana</option>
+  </select>
+  <br><br>
+  <button onclick="resetTheme()">Reset Theme</button>
+  <button onclick="closeThemeSelector()">Close</button>
+  <br><br>
+  <!-- Share Button -->
+  <button id="shareDesignBtn" onclick="shareDesign()">Share Design</button>
+</div>
+
+<!-- Button to Open Theme Selector -->
+<button id="openThemeSelector" style="position: fixed; bottom: 20px; right: 20px; background: #000; color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; text-align: center; line-height: 50px;">🎨</button>
+
+<script>
+  // Toggle theme selector visibility
+  document.getElementById('openThemeSelector').addEventListener('click', function() {
+    const selector = document.getElementById('themeSelector');
+    selector.style.display = selector.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Function to apply selected color theme
+  function applyColorTheme(color) {
+    document.body.style.backgroundColor = color;
+    adjustContentContrast(color);
+    localStorage.setItem('selectedColor', color);
+    generateSharableLink();
+  }
+
+  // Function to apply selected font
+  function applyFont(font) {
+    document.body.style.fontFamily = font;
+    localStorage.setItem('selectedFont', font);
+    generateSharableLink();
+  }
+
+  // Function to reset theme (color and font)
+  function resetTheme() {
+    document.body.style.backgroundColor = '';
+    document.body.style.color = '';
+    document.body.style.fontFamily = '';
+    localStorage.removeItem('selectedColor');
+    localStorage.removeItem('selectedFont');
+    generateSharableLink();
+  }
+
+  // Function to close theme selector
+  function closeThemeSelector() {
+    document.getElementById('themeSelector').style.display = 'none';
+  }
+
+  // Load theme settings from localStorage if available
+  window.onload = function() {
+    const savedColor = localStorage.getItem('selectedColor');
+    const savedFont = localStorage.getItem('selectedFont');
+    
+    if (savedColor) {
+      applyColorTheme(savedColor);
+    }
+    if (savedFont) {
+      applyFont(savedFont);
+    }
+  };
+
+  // Adjust content contrast for better readability based on selected background color
+  function adjustContentContrast(backgroundColor) {
+    const rgb = hexToRgb(backgroundColor);
+    const brightness = (0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b) / 255;
+    document.body.style.color = brightness > 0.5 ? '#000' : '#fff';
+  }
+
+  // Helper function to convert hex color to RGB
+  function hexToRgb(hex) {
+    let bigint = parseInt(hex.slice(1), 16);
+    return {
+      r: (bigint >> 16) & 255,
+      g: (bigint >> 8) & 255,
+      b: bigint & 255
+    };
+  }
+
+  // Function to generate a sharable link
+  function generateSharableLink() {
+    const color = localStorage.getItem('selectedColor') || '';
+    const font = localStorage.getItem('selectedFont') || '';
+    const link = `${window.location.origin}${window.location.pathname}?color=${encodeURIComponent(color)}&font=${encodeURIComponent(font)}`;
+    document.getElementById('shareDesignBtn').setAttribute('data-share-link', link); // Attach the link to the share button
+  }
+
+  // Function to share the design
+  function shareDesign() {
+    const shareLink = document.getElementById('shareDesignBtn').getAttribute('data-share-link');
+    navigator.clipboard.writeText(shareLink).then(() => {
+      alert('Design link copied to clipboard: ' + shareLink);
+    }).catch(err => {
+      console.error('Error copying link: ', err);
+    });
+  }
+
+  // Load theme settings from URL if available
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlColor = urlParams.get('color');
+  const urlFont = urlParams.get('font');
+  if (urlColor) {
+    applyColorTheme(decodeURIComponent(urlColor));
+  }
+  if (urlFont) {
+    applyFont(decodeURIComponent(urlFont));
+  }
+</script>
 
 </html>
