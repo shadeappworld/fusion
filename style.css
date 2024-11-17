@@ -5,52 +5,70 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-size: 16px;
 }
 
 body {
   padding: 1rem;
-  background-color: #000000;
-  font-family: Kanit, monospace;
+  background-color: #1C1C1E; /* Dark mode background */
+  font-family: 'San Francisco', Kanit, monospace;
+  color: #FFFFFF; /* Standard iOS text color for dark mode */
 }
 
-h1{
-  padding:0 1rem 0 1rem;
-  color: #EEF1FF;
-  text-decoration: 0.1rem dashed underline #B1B2FF
+/* Title Styling */
+h1 {
+  padding: 1rem;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2rem;
+  text-decoration: none; /* Minimalistic, no underline */
+  letter-spacing: -0.01em;
 }
+
 h1 p {
   display: inline;
-  color: #ddd8bd;
-  text-shadow: 0 0 1rem;
-  -webkit-text-stroke: 0.1rem #b5c29a;
+  color: #F0F0F0;
+  font-weight: 400;
 }
 
+/* Section Layout */
 section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center
+  text-align: center;
+  margin: 1rem;
 }
 
+/* iOS-like Button Style */
 a {
   margin: 1rem;
   width: 90%;
-  padding: 0.5rem;
-  border-radius: 1rem;
-  border: 0.1rem solid;
-  border-bottom: 0.3rem solid;
-  color: #EEF1FF;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: #007AFF; /* iOS default button color */
+  color: #FFFFFF;
   text-decoration: none;
   text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
 }
 
+/* Button Hover Effect */
+a:hover {
+  background-color: #005DB4;
+  transform: translateY(-2px); /* Lift effect on hover */
+}
 
+/* Responsive Design for Landscape */
 @media (orientation:landscape) {
   a {
     width: 60%;
   }
 
   h1 {
-    text-align: center
+    text-align: center;
   }
 }
