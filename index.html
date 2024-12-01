@@ -217,13 +217,54 @@
 #cards-section .card {
     transition: opacity 0.3s;
 }
-    </style>
+    </style><style>
+  /* Rainbow glowing animation */
+  @keyframes rainbow-glow {
+    0% { box-shadow: 0 0 10px red; }
+    20% { box-shadow: 0 0 10px orange; }
+    40% { box-shadow: 0 0 10px yellow; }
+    60% { box-shadow: 0 0 10px green; }
+    80% { box-shadow: 0 0 10px blue; }
+    100% { box-shadow: 0 0 10px purple; }
+  }
+
+  #video-container {
+    transition: animation 0.5s ease-out;
+  }
+</style>
+
 </head>
 
 <body>
  <h1 contenteditable="true">
     Shade <p contenteditable="true">Fusion</p>
 </h1>
+<!-- YouTube Video Embed -->
+<div style="display: flex; justify-content: center; margin: 20px 0;">
+    <div id="video-container" style="border-radius: 15px; padding: 5px; animation: rainbow-glow 2s infinite; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); width: 320px; height: 180px;">
+        <iframe 
+            id="video-iframe"
+            src="https://www.youtube.com/embed/rKmLTAE_bGc?si=KH5cdAFnCcXGIHc-" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            style="width: 100%; height: 100%; border-radius: 15px;">
+        </iframe>
+    </div>
+</div>
+
+
+<script>
+  // Remove the glowing animation when the iframe is clicked
+  const iframe = document.getElementById("video-iframe");
+  const container = document.getElementById("video-container");
+
+  iframe.addEventListener("click", () => {
+    container.style.animation = "none";
+  });
+</script>
+</div>
  <section id="cards-section">
     <div class="card" style="background-color: rgba(255, 68, 243, 0.2);" draggable="true">
         <a href="javascript:void(0);" onclick="openIframe(this, 'https://notesultra.vercel.app/clean.html')">
@@ -310,7 +351,7 @@
 																				  circlePopup.addEventListener('click', togglePopup);
 																					  closeBtn.addEventListener('click', togglePopup);
 																							 </script>
-</body>
+
 <!-- Theme Selector Panel -->
 <div id="themeSelector" style="display:none; position: fixed; bottom: 10px; right: 10px; background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 10000;">
   <h3>Select a Theme</h3>
@@ -516,5 +557,5 @@ function openIframe(anchorElement, url) {
 }
 
 </script>
-
+</body>
 </html>
