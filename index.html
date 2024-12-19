@@ -239,20 +239,6 @@
  <h1 contenteditable="true">
     Shade <p contenteditable="true">Fusion</p>
 </h1>
-<!-- YouTube Video Embed -->
-<div style="display: flex; justify-content: center; margin: 20px 0;">
-    <div id="video-container" style="border-radius: 15px; padding: 5px; animation: rainbow-glow 2s infinite; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); width: 320px; height: 180px;">
-        <iframe 
-            id="video-iframe"
-            src="https://www.youtube.com/embed/rKmLTAE_bGc?si=KH5cdAFnCcXGIHc-" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width: 100%; height: 100%; border-radius: 15px;">
-        </iframe>
-    </div>
-</div>
 
 
 <script>
@@ -266,6 +252,16 @@
 </script>
 </div>
  <section id="cards-section">
+     
+     
+    <div class="card" style="background-color: rgba(0, 238, 255, 0.467);" draggable="true">
+        <a href="javascript:void(0);" onclick="openIframe(this, 'https://shadeit.vercel.app')">
+            <h2>Shade It!</h2>
+            <p>Our Cloud Gaming and Video Streaming app.</p>
+        </a>
+        <iframe class="dropdown-iframe" src="" frameborder="0"></iframe>
+    </div>
+    
     <div class="card" style="background-color: rgba(255, 68, 243, 0.2);" draggable="true">
         <a href="javascript:void(0);" onclick="openIframe(this, 'https://notesultra.vercel.app/clean.html')">
             <h2>Shade Notes</h2>
@@ -289,6 +285,16 @@
         </a>
         <iframe class="dropdown-iframe" src="" frameborder="0"></iframe>
     </div>
+    
+    
+    <div class="card" style="background-color: rgba(0, 238, 255, 0.467);" draggable="true">
+        <a href="javascript:void(0);" onclick="openIframe(this, 'https://shadeappworld.github.io/taskshttps://www.youtube.com/embed/rKmLTAE_bGc?si=KH5cdAFnCcXGIHc-')">
+            <h2>Shade AI Event</h2>
+            <p>Our latest event where we've introduced Shade Notes Ultra, Shade Book, Shade It and a lot more!</p>
+        </a>
+        <iframe class="dropdown-iframe" src="" frameborder="0"></iframe>
+    </div>
+    
     
     <div class="card" style="background-color: rgba(38, 255, 0, 0.2);" draggable="true">
         <a href="javascript:void(0);" onclick="openIframe(this, 'https://msha.ke/shadesoftware')">
