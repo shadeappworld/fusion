@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-  <!-- Google tag (gtag.js) -->
+ <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P7JWWB27S0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -11,38 +10,174 @@
 
   gtag('config', 'G-P7JWWB27S0');
 </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shade Fusion</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set up my Shade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #ff7f00, #ff0044, #00ff66, #00bfff, #8a2be2, #ff1493, #ffb6c1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            animation: glow 5s ease-in-out infinite alternate;
+            background-size: 300% 300%;
+        }
+
+        @keyframes glow {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            padding: 20px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .text {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
+            line-height: 1.5;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 25px;
+            height: 30px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            margin: 20px auto;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #00ff99;
+            border-radius: 25px;
+        }
+
+        .ios-message {
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+
+        a {
+            color: #00ff99;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .text {
+                font-size: 1.4em;
+            }
+            .ios-message {
+                font-size: 1.2em;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <h1>
-    Shade Software - <p>Download.</p>
-  </h1>
- 
-  <section>
-    <a href="TeamShade25.zip" style="background-color: rgba(255, 68, 243, 0.2)">
-      <h2>Ready to download?</h2>
-      <p>You're one click away on getting access to our apps, together as one.
-        When you're ready, just click here to start downloading.
-      </p>
-    </a>
-    <a href="https://wa.me/message/SW7R4UHLHRJPE1" style="background-color:rgba(12, 187, 0, 0.467)">
-      <h2>Join the #TeamShade fanbase!</h2>
-      <p>Join our fanbase so you'll recieve the latest updates on everthing new!</p>
-    </a>
-  </section>
-  <script>
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    navigator.serviceWorker.register('sw.js')
-  }
-</script>
+    <div class="container" id="container">
+        <div class="text" id="descriptionText">Shade Book is your ultimate AI-powered productivity companion...</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <a href="https://shadebook.vercel.app" target="_blank" id="downloadLink" style="display: none;">Download Shade Book</a>
+    </div>
 
+    <div class="ios-message" id="iosMessage" style="display: none;">
+        <div>Install Shade Book for iPhone</div>
+        <div>1. Tap this link to open Shade Book: <a style="color: white; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 1px; padding: 9px; background-color: transparent; border-radius: 5px; transition: background-color 0.3s;" href="https://shadebook.vercel.app">https://shadebook.vercel.app</a></div>
+        <div>2. Tap the Share button at the bottom of your screen.</div>
+        <div>3. Select "Add to Home Screen".</div>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        const descriptionText = document.getElementById('descriptionText');
+        const container = document.getElementById('container');
+        const iosMessage = document.getElementById('iosMessage');
+        const downloadLink = document.getElementById('downloadLink');
+
+        // Detect if the user is on iOS
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        }
+
+        // Show iOS instructions if the user is on iOS
+        if (isIOS()) {
+            container.style.display = 'none'; // Hide the regular content
+            iosMessage.style.display = 'block'; // Show iOS instructions
+        } else {
+            const descriptionPieces = [
+                "Shade Book is your ultimate AI-powered productivity companion...",
+                "Designed to make life simpler and more organized.",
+                "Whether you're managing schoolwork, personal goals, or daily tasks,",
+                "Shade Book combines smart note-taking, efficient task management,",
+                "And personalized AI assistance to help you stay on track.",
+                "The more you use it, the better it understands your needs,",
+                "Offering tailored solutions like summarizing notes, planning your day,",
+                "Or even acting as your study buddy.",
+                "With Shade AI at its core, Shade Book adapts to your lifestyle,",
+                "Making it easier to focus on what matters most—at school, work, or in life.",
+                "And now, discover Shade Music with over 100 million songs,",
+                "Personalized playlists made just for you by Shade AI.",
+                "And don't forget to Shade It with Cloud Gaming and enjoy ad-free video streaming."
+            ];
+
+            let currentIndex = 0;
+
+            function updateDescription() {
+                if (currentIndex < descriptionPieces.length) {
+                    descriptionText.textContent = descriptionPieces[currentIndex];
+                    currentIndex++;
+                }
+            }
+
+            function simulateDownload() {
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 1;
+                    progressBar.style.width = progress + '%';
+                    if (progress === 100) {
+                        clearInterval(interval);
+                        downloadFile();
+                    }
+                }, 500); // Adjust the speed of the progress bar here
+            }
+
+            function downloadFile() {
+                downloadLink.style.display = 'block'; // Show the download link once the progress is complete
+            }
+
+            // Update the description every 2 seconds
+            setInterval(updateDescription, 4000);
+
+            simulateDownload();
+        }
+    </script>
 </body>
-
-
 </html>
