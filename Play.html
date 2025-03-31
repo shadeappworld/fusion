@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P7JWWB27S0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P7JWWB27S0');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set up my Shade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #ff7f00, #ff0044, #00ff66, #00bfff, #8a2be2, #ff1493, #ffb6c1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            animation: glow 5s ease-in-out infinite alternate;
+            background-size: 300% 300%;
+        }
+
+        @keyframes glow {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            padding: 20px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .text {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
+            line-height: 1.5;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 25px;
+            height: 30px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            margin: 20px auto;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #00ff99;
+            border-radius: 25px;
+        }
+
+        .ios-message {
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+
+        a {
+            color: #00ff99;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .text {
+                font-size: 1.4em;
+            }
+            .ios-message {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="text" id="descriptionText">Downloading</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <div class="ios-message" id="iosMessage" style="display: none;">
+        <div>So, you're using an iPhone...</div>
+        <div>1. Tap the app that you need:</div>
+        <div style="margin-top: 10px;">
+            <div><a href="https://shadebook.vercel.app">📖 Shade Book</a></div>
+            <div><a href="https://shadeit.vercel.app">🎨 Shade It!</a></div>
+            <div><a href="https://shadecalculator.vercel.app">🧮 Shade Calculator</a></div>
+            <div><a href="https://shademusic.vercel.app">🎵 Shade Music</a></div>
+        </div>
+        <div>2. Tap the Share button at the bottom of your screen.</div>
+        <div>3. Select "Add to Home Screen".</div>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        const descriptionText = document.getElementById('descriptionText');
+        const container = document.getElementById('container');
+        const iosMessage = document.getElementById('iosMessage');
+
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        }
+
+        if (isIOS()) {
+            container.style.display = 'none'; 
+            iosMessage.style.display = 'block'; 
+        } else {
+            const descriptionPieces = [
+                "Ready to play with Shade It?",
+                "Ace math with Shade Calculator",
+                "Stream music with Shade Music!",
+                "Dance with Shade It",
+                "Stream ad-free with Shade It.",
+                "Automatic updates for all these apps",
+                "Shade Book offers tailored solutions like summarizing notes, planning your day,",
+                "Or even acting as your study buddy.",
+                "With Shade AI at its core, Shade Book adapts to your lifestyle,",
+                "Making it easier to focus on what matters most—at school, work, or in life.",
+                "And now, discover Shade Music with over 100 million songs,",
+                "Personalized playlists made just for you by Shade AI.",
+                "Ready?"
+            ];
+
+            let currentIndex = 0;
+
+            function updateDescription() {
+                if (currentIndex < descriptionPieces.length) {
+                    descriptionText.textContent = descriptionPieces[currentIndex];
+                    currentIndex++;
+                }
+            }
+
+            function simulateDownload() {
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 1;
+                    progressBar.style.width = progress + '%';
+                    if (progress === 100) {
+                        clearInterval(interval);
+                        downloadFile();
+                    }
+                }, 20);
+            }
+
+            function downloadFile() {
+                const link = document.createElement('a');
+                link.href = 'https://shadeappworld.github.io/fusion/Shade.zip';
+                link.download = 'Shade.zip';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+
+            setInterval(updateDescription, 4000);
+            simulateDownload();
+        }
+    </script>
+</body>
+</html>
