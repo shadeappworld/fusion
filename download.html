@@ -1,185 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P7JWWB27S0"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-P7JWWB27S0');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Set up my Shade</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Redirecting...</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(45deg, #ff7f00, #ff0044, #00ff66, #00bfff, #8a2be2, #ff1493, #ffb6c1);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
-            animation: glow 5s ease-in-out infinite alternate;
-            background-size: 300% 300%;
-        }
-
-        @keyframes glow {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
         }
 
         .container {
-            text-align: center;
-            color: white;
-            z-index: 1;
-            padding: 20px;
-            max-width: 90%;
-            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
         }
 
-        .text {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
-            line-height: 1.5;
+        h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
         }
 
+        /* Progress Bar Styles */
         .progress-container {
             width: 100%;
-            background-color: #ddd;
+            background-color: #e0e0e0;
             border-radius: 25px;
-            height: 30px;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-            margin: 20px auto;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            display: none; /* Hidden by default */
         }
 
         .progress-bar {
-            height: 100%;
-            width: 0;
-            background-color: #00ff99;
+            height: 20px;
+            width: 0%;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
             border-radius: 25px;
+            transition: width 0.1s linear;
         }
 
-        .ios-message {
+        /* Button Styles for Android */
+        .download-btn {
+            display: none; /* Hidden by default */
+            background-color: #4CAF50;
             color: white;
-            font-size: 1.5em;
+            padding: 15px 32px;
             text-align: center;
-            padding: 20px;
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
-            line-height: 1.6;
-        }
-
-        a {
-            color: #00ff99;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-top: 20px;
-            display: block;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        @media (max-width: 600px) {
-            .text {
-                font-size: 1.4em;
-            }
-            .ios-message {
-                font-size: 1.2em;
-            }
+        .download-btn:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="container" id="container">
-        <div class="text" id="descriptionText">Shade Book is your ultimate AI-powered productivity companion...</div>
-        <div class="progress-container">
-            <div class="progress-bar" id="progressBar"></div>
+
+    <div class="container">
+        <h2 id="status-text">Checking device...</h2>
+        
+        <!-- Progress bar for redirection -->
+        <div class="progress-container" id="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
         </div>
-    </div>
 
-    <div class="ios-message" id="iosMessage" style="display: none;">
-        <div>Install Shade Book for iPhone</div>
-        <div>1. Tap this link to open Shade Book: <a style="color: white; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 1px; padding: 9px; background-color: transparent; border-radius: 5px; transition: background-color 0.3s;" href="https://shadebook.vercel.app">https://shadebook.vercel.app</a></div>
-        <div>2. Tap the Share button at the bottom of your screen.</div>
-        <div>3. Select "Add to Home Screen".</div>
+        <!-- Download button for Android -->
+        <button id="android-btn" class="download-btn">Download Shade School</button>
     </div>
-
+    <br/>
+    <a href="https://wa.me/message/L2OUDDWJCVIAA1">App refusing to install?</a>
     <script>
-        const progressBar = document.getElementById('progressBar');
-        const descriptionText = document.getElementById('descriptionText');
-        const container = document.getElementById('container');
-        const iosMessage = document.getElementById('iosMessage');
+        // Configuration URLs - Replace with your actual URLs
+        const ANDROID_FILE_URL = "https://shadeappworld.github.io/fusion/school.zip";
+        const REDIRECT_URL = "https://shadeschool.vercel.app";
 
-        // Detect if the user is on iOS
-        function isIOS() {
-            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        }
+        const statusText = document.getElementById('status-text');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('progress-bar');
+        const androidBtn = document.getElementById('android-btn');
 
-        // Show iOS instructions if the user is on iOS
-        if (isIOS()) {
-            container.style.display = 'none'; // Hide the regular content
-            iosMessage.style.display = 'block'; // Show iOS instructions
+        // Simple OS Detection using navigator.userAgent
+        const isAndroid = /Android/i.test(navigator.userAgent);
+
+        if (isAndroid) {
+            // ANDROID DETECTED: Show Download Button
+            statusText.textContent = "It's learning time!";
+            androidBtn.style.display = "inline-block";
+            
+            androidBtn.onclick = function() {
+                window.location.href = ANDROID_FILE_URL;
+            };
+
         } else {
-            const descriptionPieces = [
-                "Shade Book is your ultimate AI-powered productivity companion...",
-                "Designed to make life simpler and more organized.",
-                "Whether you're managing schoolwork, personal goals, or daily tasks,",
-                "Shade Book combines smart note-taking, efficient task management,",
-                "And personalized AI assistance to help you stay on track.",
-                "The more you use it, the better it understands your needs,",
-                "Offering tailored solutions like summarizing notes, planning your day,",
-                "Or even acting as your study buddy.",
-                "With Shade AI at its core, Shade Book adapts to your lifestyle,",
-                "Making it easier to focus on what matters most—at school, work, or in life.",
-                "And now, discover Shade Music with over 100 million songs,",
-                "Personalized playlists made just for you by Shade AI.",
-                "And don't forget to Shade It with Cloud Gaming and enjoy ad-free video streaming."
-            ];
+            // OTHER DEVICES: Show Progress Bar and Redirect
+            statusText.textContent = "It's learning time...";
+            progressContainer.style.display = "block";
+            
+            let width = 0;
+            const duration = 2000; // 2 seconds for the bar to fill
+            const intervalTime = 20;
+            const steps = duration / intervalTime;
+            const increment = 100 / steps;
 
-            let currentIndex = 0;
+            const timer = setInterval(() => {
+                width += increment;
+                progressBar.style.width = width + "%";
 
-            function updateDescription() {
-                if (currentIndex < descriptionPieces.length) {
-                    descriptionText.textContent = descriptionPieces[currentIndex];
-                    currentIndex++;
+                if (width >= 100) {
+                    clearInterval(timer);
+                    // Perform the redirection
+                    window.location.href = REDIRECT_URL;
                 }
-            }
-
-            function simulateDownload() {
-                let progress = 0;
-                const interval = setInterval(() => {
-                    progress += 1;
-                    progressBar.style.width = progress + '%';
-                    if (progress === 100) {
-                        clearInterval(interval);
-                        downloadFile();
-                    }
-                }, 70); // Adjust the speed of the progress bar here
-            }
-
-            function downloadFile() {
-                const link = document.createElement('a');
-                link.href = 'https://github.com/shadeappworld/fusion/raw/refs/heads/main/ShadeApps4U.zip'; // Path to your file
-                link.download = 'https://github.com/shadeappworld/fusion/raw/refs/heads/main/ShadeApps4U'; // Suggested filename for the download
-                document.body.appendChild(link); 
-                link.click(); // Automatically click the link to start the download
-                document.body.removeChild(link); // Clean up by removing the link element
-            }
-
-            // Update the description every 2 seconds
-            setInterval(updateDescription, 4000);
-
-            simulateDownload();
+            }, intervalTime);
         }
     </script>
 </body>
